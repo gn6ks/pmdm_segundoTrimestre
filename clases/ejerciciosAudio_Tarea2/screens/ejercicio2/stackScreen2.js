@@ -4,13 +4,12 @@ import { Audio } from "expo-av";
 import Context from "../../context/context";
 
 export default function StackScreen2(props) {
-  const { audio, setAudio } = useContext(Context);
+  const { audio } = useContext(Context);
 
   const playAudio = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("../../audio/audio.mp3")
+      require(audio)
     );
-    setAudio(sound);
     await sound.playAsync();
   };
 
