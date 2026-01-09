@@ -13,8 +13,8 @@ export default function Ejercicio1() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center", // vertical
-        alignItems: "center",     // horizontal
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Button title="pulsar" onPress={playLocalSound} />
