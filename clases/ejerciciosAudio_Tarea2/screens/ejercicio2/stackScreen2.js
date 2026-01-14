@@ -5,24 +5,25 @@ import Context from "../../context/context";
 
 export default function StackScreen2(props) {
   const { audio } = useContext(Context);
-  const 
+  const [sound, setSound] = useState();
 
   const playAudio = async () => {
-    const { sound } = await Audio.Sound.createAsync(
+    const { sound: newAudio } = await Audio.Sound.createAsync(
       audio
     );
-    await sound.playAsync();
+    setSound(newAudio);
+    await newAudio.playAsync();
   };
 
   const toggleAudio = async () => {
     try {
-      const result = await audio.getStatusAsync();
+      const result = await sound.getStatusAsync();
       if (!result.isLoaded) return;
 
       if (result.isPlaying) {
-        await audio.pauseAsync();
+        await sound.pauseAsync();
       } else {
-        await audio.playAsync();
+        await sound.playAsync();
       }
     } catch (error) {
       console.log(error);
@@ -30,7 +31,7 @@ export default function StackScreen2(props) {
   };
 
   const stopAudio = async () => {
-    await audio.stopAsync();
+    await sound.stopAsync();
   };
 
   useEffect(() => {
