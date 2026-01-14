@@ -5,10 +5,11 @@ import Context from "../../context/context";
 
 export default function StackScreen2(props) {
   const { audio } = useContext(Context);
+  const 
 
   const playAudio = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require(audio)
+      audio
     );
     await sound.playAsync();
   };
@@ -29,9 +30,7 @@ export default function StackScreen2(props) {
   };
 
   const stopAudio = async () => {
-    if (audio) {
-      await audio.stopAsync();
-    }
+    await audio.stopAsync();
   };
 
   useEffect(() => {
