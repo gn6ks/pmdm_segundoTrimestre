@@ -1,5 +1,5 @@
 //poner ejercicios aqui
-import MainApp from './ejerciciosAudio_Tarea2/screens/ejercicio2/stackEjercicio2';
+import MainApp from './ejerciciosGrabacion_Tarea1/screens/ejercicio1';
 
 export default function App() {
   return (
